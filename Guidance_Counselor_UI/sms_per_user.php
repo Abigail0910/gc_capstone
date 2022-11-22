@@ -6,7 +6,6 @@ DB::$password = '';
 DB::$dbName = 'guidance_and_counseling';
 DB::$encoding = 'utf8';
 
-
 $group = $_POST['user'];
 
 DB::query("UPDATE sms SET seen_status=%i WHERE group_sms=%i", 1, $group);
@@ -28,7 +27,6 @@ $data[] = ["text_sms" => $row['text_sms'],
 		   "sms_id" => $row['id'],
 		   "date" => date("g:i a | F j", strtotime($row['date_sent'])),
 		   "sender" => $row['sender'] ];
-
 
 }
 

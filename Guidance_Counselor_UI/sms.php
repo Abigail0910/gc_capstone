@@ -356,7 +356,7 @@ span.deleteicon input {
            
             </div>
             <span class="deleteicon" style="width: 100%;">
-                <input type="text" id="search-user" class="form-control" placeholder="search user.." style="width: 100%;" >
+                <input type="text" id="search-user" class="form-control" placeholder="Search User.." style="width: 100%;" >
                 <span id="clear-text">x</span>
             </span>
           </div>

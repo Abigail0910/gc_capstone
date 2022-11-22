@@ -503,7 +503,7 @@
                 </div>
             </div>
 
-          <!--    <div class="form-group-inner data-custon-pick" id="data_2">
+          <!--    <div class="form-group-inner data-custon-pick" id="data_2"
                 <div class="row">
                   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
                     <label class="login2 pull-right" style="font-weight: bold;">Name</label>
@@ -762,6 +762,16 @@
                 </div>
               </div>
 
+              <div class="form-group-inner data-custon-pick" id="data_2">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-9">
+                    <label class="login2 pull-right" style="font-weight: bold;">Student Name</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="view-name" class="form-control" disabled />
+                  </div>
+                </div>
+              </div>
 
             <div class="form-group-inner">
                 <div class="row">
@@ -1292,6 +1302,7 @@ $.ajax({
                     $("#view-reason").val(data[0].subject);
                     $("#view-time").val(data[0].timeslot+" to "+data[0].timeslot_end);
                     $("#view-id").val(data[0].id_number);
+                    $("#view-name").val(data[0].name);
                     $("#view-url").val(data[0].meeting_link);
 
 

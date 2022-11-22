@@ -6,11 +6,6 @@ DB::$password = '';
 DB::$dbName = 'guidance_and_counseling';
 DB::$encoding = 'utf8';
 
-
-
-
-
-
 $pos = $_POST['pos'];
 
 $fetchData = DB::query("SELECT * from users where position='$pos' ");

@@ -19,7 +19,7 @@
                         </ul>
                     </li> -->
                     <li class="active">
-                        <a title="Landing Page" href="gc___dashboard.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Dashboard</span></a>
+                        <a title="Gc Dashboard" href="gc___dashboard.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Dashboard</span></a>
                     </li>
                     <!-- <li>
                         <a title="Landing Page" href="gc___calendar.php" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Calendar</span></a>
@@ -30,10 +30,10 @@
                     </li> -->
 
                     <li>
-                        <a title="Landing Page" href="gc___main-all-gc.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Counselor</span></a>
+                        <a title="All GC" href="gc___main-all-gc.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Counselor</span></a>
                     </li>
                     <li>
-                        <a title="Landing Page" href="sms.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">SMS</span></a>
+                        <a title="Inbox" href="sms.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">SMS</span></a>
                     </li>
                     <!-- <li>
                         <a class="has-arrow" href="gc___all-staff.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Counselor</span></a>
@@ -45,7 +45,7 @@
                         </ul>
                     </li> -->
                     <li>
-                        <a title="Landing Page" href="gc___all-staff.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Staff</span></a>
+                        <a title="All Staff" href="gc___all-staff.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Staff</span></a>
                     </li>
                     <!-- <li>
                         <a class="has-arrow" href="gc___all-staff.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Staff</span></a>
@@ -57,7 +57,7 @@
                         </ul>
                     </li> -->
                     <li>
-                        <a title="Landing Page" href="gc___all-students.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Students</span></a>
+                        <a title="All Student" href="gc___all-students.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Students</span></a>
                     </li>
                     <!-- <li>
                         <a class="has-arrow" href="gc___all-students.php" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
@@ -69,7 +69,10 @@
                         </ul>
                     </li> -->
                     <li>
-                        <a title="Landing Page" href="gc___referral.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Referral</span></a>
+                        <a title="Goodmoral" href="gc___goodmoral.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Good Moral</span></a>
+                    </li>
+                    <li>
+                        <a title="Referral" href="gc___referral.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Referral</span></a>
                     </li>
                     <li>
                         <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Appointment</span></a>
@@ -91,7 +94,7 @@
                     </li>
 
                     <li>
-                        <a title="Landing Page" href="gc___offense_monitoring.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Offense Monitoring</span></a>
+                        <a title="Offense Monitoring" href="gc___offense_monitoring.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Offense Monitoring</span></a>
                     </li>
 
                     <li>

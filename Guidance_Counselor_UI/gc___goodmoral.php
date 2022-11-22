@@ -13,10 +13,16 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
      $query = "SELECT * FROM users WHERE role = 3";
     $execute = $con->query($query) or die($conn->error);
     $get = $execute->fetch_assoc();
+   
+ 
+    // Check connection 
+    if ($con->connect_error) { 
+        die("Connection failed: " . $con->connect_error); 
+    } 
+
 
         
 ?>
-
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -100,6 +106,25 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
   <!-- modernizr JS
     ============================================ -->
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/9bdab6475a.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>  
+            .paul ul
+            {  
+                background-color:#eee;  
+                cursor:pointer;  
+                width: 200px;
+            }  
+            .paul li
+            {  
+                padding:12px;  
+            }
+            .paul input[type=text]{
+                width: 250px;
+            }
+        </style>  
 </head>
 
 <body>
@@ -133,65 +158,58 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
     </div>
   </div>
   </div>
-  <?php include('includes/gc___mobile_menu.php')  ?>
+<!--PAUL CODE STARTS HERE -->
+      <div class="container pt-5 mt-3 paul">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="content">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2 class="text-center">Search Student</h2>
+                    </div>
+                    <div class="card-body">
+                      <form method="POST">
+                        <label>Search Student...</label>  
+                        <input type="text" name="user" id="user" class="form-control mt-2" placeholder="Enter User Name" />  
+                        <div id="userList"></div>     
+                        <input type="submit" name="submit">  
+                      </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="content">
+              <p id="userList" style="color: red; font-size: 25px;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        
-
-        <form action="pupuntahan.php" method="POST">
-            <table border="1">
-                    <thead>
-                    <tr>    
-                            <th>
-                            
-                            </th>
-                            <th>
-                                ID
-                            </th>
-                            <th>
-                                LastName
-                            </th>
-                            <th>
-                                FirstName
-                            </th>
-                            <th>
-                                Gender
-                            </th>
-                        </tr>
-                    </thead>
-                
-                    <?php do{ ?>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="stu_name" value=" <?= $get['user_id'];?>">
-                                </td>
-                                <td>
-                                   <?= $get['user_id'];?>
-                                </td>
-                                <td>
-                                   <?= $get['last_name'];?>
-                                </td>
-                                <td>
-                                   <?= $get['first_name'];?>
-                                </td>
-                                <td>
-                                   <?= $get['gender'];?>
-                                </td>
-                            </tr>
-                    <?php }while($get = $execute -> fetch_assoc()); ?>    
-                    </thead>
-                   
-            </table>
-            <input type="submit" name="submit" value="confirm">
-        </form>
-
-
-
-      
-
-  
-
-  
-
+<script>  
+    $(document).ready(function(){  
+        $('#user').keyup(function(){  
+            var query = $(this).val();  
+            if(query != '')  
+            {  
+                $.ajax({  
+                    url:"search.php",  
+                    method:"POST",  
+                    data:{query:query},  
+                    success:function(data)  
+                    {  
+                        $('#userList').fadeIn();  
+                        $('#userList').html(data);  
+                    }  
+                });  
+            }  
+        });  
+        $(document).on('click', 'li', function(){  
+            $('#user').val($(this).text());  
+            $('#userList').fadeOut();  
+        });  
+    });  
+</script>
   <!-- jquery
     ============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -275,4 +293,5 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
 </body>
 
 </html>
+
 

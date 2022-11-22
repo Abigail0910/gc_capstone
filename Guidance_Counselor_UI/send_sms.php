@@ -10,9 +10,6 @@ $reciever = $_POST['reciever'];
 $sender = $_POST['sender'];
 $text = $_POST['text'];
 
-
-
-
 DB::insert('sms', [
   'sender' => $sender,
   'reciever' => $reciever,

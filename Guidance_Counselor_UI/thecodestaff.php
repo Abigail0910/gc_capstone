@@ -62,12 +62,6 @@ if (isset($_POST['add_staff'])) {
     }
 }
 
-
-
-
-
-
-
 if (isset($_POST['register_gc_staff-btn'])) {
 
     $Gc_id = $_POST['gc_id'];
