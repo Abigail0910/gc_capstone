@@ -415,8 +415,11 @@ if (!isset($_SESSION['UserEmail'])) {
                         <div style="display: flex; justify-content: center;">
                           <a class="btn btn-primary" style="margin-left: 10px; color: white;"
                             href="gc___student_profile.php?id=<?= $row['user_id'] ?>">View</a>
-                          <a class="btn btn-danger" style="margin-left: 10px; margin-right: 20px; color: white;"
-                            href="gc___student_profile.php?id=<?= $row['user_id'] ?>">Edit</a>
+                          <!-- <a class="btn btn-danger" style="margin-left: 10px; margin-right: 20px; color: white;"
+                            href="gc___student_profile.php?id=<?= $row['user_id'] ?>" >Edit</a> -->
+                          <button id="showEditStudentModal" class="btn btn-warning" style="margin-left: 10px; margin-right: 20px; color: white;"
+                            data-toggle="modal" data-target="#studentModal" data-id="<?= $row['user_id'] ?>">Edit</button>
+
                         </div>
                       </td>
 
@@ -448,11 +451,184 @@ if (!isset($_SESSION['UserEmail'])) {
   </div>
   <!-- Static Table End -->
 
+  <!-- MODAL FOR EDITING STUDENT INFORMATION -->
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div id="studentModal" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header header-color-modal bg-color-1">
+            <h4 class="modal-title">Edit Student Information</h4>
+            <div class="modal-close-area modal-close-df">
+              <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+            </div>
+          </div>
+
+          <form action="thecodestud.php" method="POST">
+            <div class="modal-body">
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Student ID</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="edit_stud_id" name="edit_stud_id" class="form-control" placeholder="Enter Student ID" readonly />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">First Name</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="edit_first_name" name="edit_first_name" class="form-control" placeholder="Enter First Name" required />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Middle Name</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="edit_middle_name" name="edit_middle_name" class="form-control" placeholder="Enter Middle Name"
+                      required />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Last Name</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="edit_last_name" name="edit_last_name" class="form-control" placeholder="Enter Last Name" required />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Address</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="edit_address" name="edit_address" class="form-control" placeholder="Enter Address" required />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Contact No.</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" id="edit_contact" name="edit_contact" class="form-control" placeholder="Enter Contact Number"
+                      required />
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Program</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="form-select-list">
+                      <select id="edit_select_program" class="form-control custom-select-value" name="app_type"
+                        onchange="changeDropdown(this.value);">
+                        <option disabled selected>Select Program</option>
+                        <option value="BSIT">BSIT</option>
+                        <option value="CCTECH">CCTECH</option>
+                        <option value="MAWD">MAWD</option>
+                        <option value="CUART">CUART</option>
+                        <option value="HUMSS">HUMSS</option>
+                        <option value="CpE">BSBA</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group-inner">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <label class="login2 pull-right">Level</label>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="form-select-list">
+                      <select id="edit_select_level" class="form-control custom-select-value" name="app_type"
+                        onchange="changeDropdown(this.value);">
+                        <option disabled selected>Select Level</option>
+                        <option value="G11">G11</option>
+                        <option value="G12">G12</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!----------------- input type as student for login validation --------------------->
+              <input type="hidden" name="usertype" value="Student">
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-md" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="add_student" class="btn btn-primary btn-md">Save</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 
 
   <?php
   include('includes/gc___scripts.php');
     ?>
+
+  <script>
+    
+    $(document).on('show.bs.modal', '#studentModal', function(e){
+      var userID = $(e.relatedTarget).data('id');
+      var userData;
+
+      jQuery.ajax({
+        type: "POST",
+        url: 'get_specific_user.php',
+        data: {userID : userID},
+
+        success: function (response) {
+          console.log(response);
+          userData = jQuery.parseJSON(response)
+          $('#edit_stud_id').val(userData[0].id_number);
+          $('#edit_first_name').val(userData[0].first_name);
+          $('#edit_middle_name').val(userData[0].middle_name);
+          $('#edit_last_name').val(userData[0].last_name);
+          $('#edit_address').val(userData[0].address);
+          $('#edit_contact').val(userData[0].contact);
+          $('#edit_select_program').val(userData[0].program);
+          $('#edit_select_level').val(userData[0].level);
+        }
+        
+      });
+      // window.location.href = "get_specific_user.php?userID=" + userID; 
+    });
+  </script>
 
   <!-- data table JS
 		============================================ -->
