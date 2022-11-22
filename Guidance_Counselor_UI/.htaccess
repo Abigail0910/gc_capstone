@@ -1,0 +1,4 @@
+#THIS IF FOR THE ERROR PAGES
+ErrorDocument 404 http://localhost/guidance_and_counseling/Guidance_Counselor_UI/404.php
+
+ErrorDocument 500 http://localhost/guidance_and_counseling/Guidance_Counselor_UI/500.php
