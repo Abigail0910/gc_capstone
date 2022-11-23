@@ -1,35 +1,20 @@
-<?php 
-include 'vendor/autoload.php';
+<?php  
+    $connect = mysqli_connect("localhost", "root", "", "guidance_and_counseling");  
 
-DB::$user = 'root';
-DB::$password = '';
-DB::$dbName = 'guidance_and_counseling';
-DB::$encoding = 'utf8';
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+        $Search = $_POST['search'];
+        $sql = "SELECT * FROM users WHERE first_name LIKE '%".$Search."%'";  
+        $result = mysqli_query($connect, $sql); 
 
-
-$search = $_POST['search'];
-$pos = $_POST['pos'];
-
-$fetchData = DB::query("SELECT * from users where position='$pos' AND first_name like '%$search%' OR last_name like '%$search%'");
-
-$data = array();
-
-foreach ($fetchData as $row) {
-    
-   $data[] = array(
-
-    'id' => $row['user_id'] ,
-    'studid' => $row['id_number'],
-    'position' => $row['position'],
-    'program' => $row['program'],
-    'level' => $row['level'],
-    'department' => $row['department'],
-    'text' => $row['last_name'].", ".$row['first_name'],
-
-    );
-}
-
-echo json_encode(["users" => $data]);
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                echo '<a href="#" class="list-group-item list-group-item-action border p2">'.$row['first_name'].'</a>';
+            }
+        }
+        else{
+            echo '<p class="list-group list-group-item">RECORD NOT FOUND</p>';
+        }
+    }
 
 
 ?>

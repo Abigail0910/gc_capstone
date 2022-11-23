@@ -111,19 +111,15 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
   <script src="https://kit.fontawesome.com/9bdab6475a.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>  
-            .paul ul
-            {  
-                background-color:#eee;  
-                cursor:pointer;  
-                width: 200px;
-            }  
-            .paul li
-            {  
-                padding:12px;  
-            }
-            .paul input[type=text]{
-                width: 250px;
-            }
+      .card-body{
+        background: #fff;
+        
+      }
+      a{
+        display: flex !important;
+        position: relative;
+        padding-left: 20px !important;
+      }
         </style>  
 </head>
 
@@ -159,55 +155,82 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
   </div>
   </div>
 <!--PAUL CODE STARTS HERE -->
-      <div class="container pt-5 mt-3 paul">
+      <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 m-auto">
             <div class="content">
-                <div class="card mt-5">
+                <div class="card">
                     <div class="card-header">
-                        <h2 class="text-center">Search Student</h2>
+                        <h2 class="text-center">Autocomplete Search With Ajax in PHP and MySQL Example</h2>
                     </div>
                     <div class="card-body">
                       <form method="POST">
-                        <label>Search Student...</label>  
-                        <input type="text" name="user" id="user" class="form-control mt-2" placeholder="Enter User Name" />  
-                        <div id="userList"></div>     
-                        <input type="submit" name="submit">  
+                      
+                        <input type="text" id="search" class="form-control" placeholder="Enter User Name" />  
+                           
+                        <button type="button" id="btn_search" class="btn btn-primary"> SEARCH </button>  
+                        <button type="button" id="reload" class="btn btn-primary"> Reload </button>  
                       </form>
                     </div>
+                    <div class="card">
+                      <div class="card-body">
+                          <div class="list-group list-group-item-action" id="content">
+                            <!-- CALL content id to AJAX FOR DISPLAY-->
+                          </div>
+                      </div>
+                    </div>
+                  
                 </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="content">
-              <p id="userList" style="color: red; font-size: 25px;"></p>
-            </div>
-          </div>
+       <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+          <iframe src="insertedCert/picture.pdf" width="600px" height="450px"></iframe>
+       </div>
         </div>
       </div>
 
+  <script>
+    let reload = document.querySelector("#reload");
+      reload.addEventListener("click",function(){
+        window.location.reload();
+      })
+  </script>
+
 <script>  
     $(document).ready(function(){  
-        $('#user').keyup(function(){  
-            var query = $(this).val();  
-            if(query != '')  
-            {  
-                $.ajax({  
-                    url:"search.php",  
-                    method:"POST",  
-                    data:{query:query},  
-                    success:function(data)  
-                    {  
-                        $('#userList').fadeIn();  
-                        $('#userList').html(data);  
-                    }  
-                });  
-            }  
-        });  
-        $(document).on('click', 'li', function(){  
-            $('#user').val($(this).text());  
-            $('#userList').fadeOut();  
-        });  
+       $('#search').keyup(function(){
+        var Search = $('#search').val();
+        if(Search!=''){
+          $.ajax({
+              url: 'search.php',
+              method: 'POST',
+              data:{search:Search},
+              success:function(data){
+                $('#content').html(data);//LIST ID INSIDE CONTENT 
+              }
+          })
+        }
+        else{
+          $('#content').html('');
+        }
+        $(document).on('click','a', function(){
+          $('#search').val($(this).text());
+          $('#content').html('');
+        });
+     
+       });
+       $(document).on('click','#btn_search', function(){
+           var value = $('#search').val(); //from input type
+           $.ajax({
+             url: 'display.php',
+             method: 'POST',
+             data: {query:value}, // get value of 'value' send to query
+             success:function(data){
+              $("#content").html(data);
+             }
+           })
+       })
+      
     });  
 </script>
   <!-- jquery
