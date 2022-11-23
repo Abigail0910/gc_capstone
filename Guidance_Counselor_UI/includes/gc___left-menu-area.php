@@ -69,7 +69,7 @@
                         </ul>
                     </li> -->
                     <li>
-                        <a title="Goodmoral" href="gc___goodmoral.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Good Moral</span></a>
+                        <a title="Goodmoral" href="gc___goodmoral-viewer.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Good Moral</span></a>
                     </li>
                     <li>
                         <a title="Referral" href="gc___referral.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Referral</span></a>

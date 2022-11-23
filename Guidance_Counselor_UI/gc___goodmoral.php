@@ -1,5 +1,4 @@
 <?php
-
   session_start();
 
     include_once("../connections/connection.php");
@@ -19,9 +18,7 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
     if ($con->connect_error) { 
         die("Connection failed: " . $con->connect_error); 
     } 
-
-
-        
+    
 ?>
 
 <!doctype html>
@@ -202,7 +199,7 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
         var Search = $('#search').val();
         if(Search!=''){
           $.ajax({
-              url: 'search.php',
+              url: 'search-goodmoral.php',
               method: 'POST',
               data:{search:Search},
               success:function(data){
