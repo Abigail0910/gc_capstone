@@ -174,7 +174,7 @@ $con = mysqli_connect("localhost", "root", "", "guidance_and_counseling");
 
                             <div class="panel-body">
 
-                                <iframe src="insertedCert/picture.pdf" frameborder="0" width="100%" height="947px">
+                                <iframe src="insertedCert/Good_Moral.pdf" frameborder="0" width="100%" height="947px">
                                 </iframe>
 
                             </div>
